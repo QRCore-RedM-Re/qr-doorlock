@@ -1,10 +1,11 @@
+local QRCore = exports['qr-core']:GetCoreObject()
 
 local DoorInfo	= {}
 
 RegisterServerEvent('qr-doorlock:updatedoorsv')
 AddEventHandler('qr-doorlock:updatedoorsv', function(doorID, state, cb)
     local src = source
-	local Player = exports['qr-core']:GetPlayer(src)
+	local Player = QRCore.Functions.GetPlayer(src)
 	if not IsAuthorized(Player.PlayerData.job.name, Config.DoorList[doorID]) then
 		TriggerClientEvent('QRCore:Notify', src, 9, Lang:t("error.nokey"), 5000, 0, 'mp_lobby_textures', 'cross', 'COLOR_WHITE')
             return
@@ -16,7 +17,7 @@ end)
 RegisterServerEvent('qr-doorlock:updateState')
 AddEventHandler('qr-doorlock:updateState', function(doorID, state, cb)
     local src = source
-	local Player = exports['qr-core']:GetPlayer(src)
+	local Player = QRCore.Functions.GetPlayer(src)
 	if type(doorID) ~= 'number' then
 			return
 		end

@@ -1,4 +1,6 @@
 
+local QRCore = exports['qr-core']:GetCoreObject()
+
 local CoolDown = 0
 
 Citizen.CreateThread(function()
