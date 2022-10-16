@@ -7,7 +7,7 @@ AddEventHandler('qr-doorlock:updatedoorsv', function(doorID, state, cb)
     local src = source
 	local Player = QRCore.Functions.GetPlayer(src)
 	if not IsAuthorized(Player.PlayerData.job.name, Config.DoorList[doorID]) then
-		TriggerClientEvent('QRCore:Notify', src, 9, Lang:t("error.nokey"), 5000, 0, 'mp_lobby_textures', 'cross', 'COLOR_WHITE')
+		TriggerClientEvent('QRCore:Notify', src, Lang:t("error.nokey"), 'error')
             return
         else
             TriggerClientEvent('qr-doorlock:changedoor', src, doorID, state)
