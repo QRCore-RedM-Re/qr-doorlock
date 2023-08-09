@@ -1,19 +1,13 @@
-fx_version "adamant"
-games {"rdr3"}
+fx_version "cerulean"
+games { "rdr3" }
 rdr3_warning 'I acknowledge that this is a prerelease build of RedM, and I am aware my resources *will* become incompatible once RedM ships.'
+lua54 'yes'
 
-server_scripts {
-	'server/main.lua'
-}
+description 'Doorlock Handler for RedM QR-Core'
+author 'QR'
 
-shared_scripts {
-	'@qr-core/shared/locale.lua',
-    	'locales/en.lua',
-	'config.lua'
-}
+shared_scripts { '@ox_lib/init.lua', 'modules/shared.lua', 'shared/*.lua' }
+client_scripts { 'modules/client.lua', 'client/*.lua' }
+server_scripts { 'modules/server.lua', 'server/*.lua' }
 
-client_scripts {
-	'client/main.lua'
-}
-
-dependency 'qr-core'
+lua54 'yes'
